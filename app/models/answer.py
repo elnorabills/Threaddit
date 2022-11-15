@@ -1,0 +1,86 @@
+from .db import db
+from flask_login import login_required, current_user
+from .comment import Comment
+from .vote import Vote
+from datetime import datetime
+from .user import User
+
+class Answer(db.Model):
+    __tablename__ = 'answers'
+
+    id = db.Column(db.Integer, primary_key=True)
+    userId = db.Column(db.Integer, db.ForeignKey('users.id'))
+    questionId = db.Column(db.Integer, db.ForeignKey('questions.id'))
+    body = db.Column(db.String(2000), nullable=False)
+    created_on = db.Column(db.DateTime, default=datetime.utcnow)
+    updated_on = db.Column(db.DateTime, onupdate=datetime.utcnow)
+
+
+    # Relationships
+    user = db.relationship('User', back_populates='answers')
+    question = db.relationship('Question', back_populates='answers')
+    comments = db.relationship('Comment', back_populates='answer',cascade='all, delete-orphan')
+    # votes = db.relationship('Vote', back_populates='answer', cascade='all, delete-orphan')
+
+    # Get user's username to display on the frontend
+    def get_user(self):
+        user = User.query.filter(User.id == self.userId).first()
+        return user.username
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'userId': self.userId,
+            'username': self.get_user(),
+            'questionId': self.questionId,
+            'body': self.body,
+            'created_on': self.created_on,
+            'updated_on': self.updated_on
+        }
+
+    # For future implementation to add a vote on the answers:
+    # def get_votes(self):
+    #     count = 0
+    #     voted = True
+    #     upVote = Vote.query.filter(Vote.answerId == self.id).filter(Vote.voteDirection=='Up').all()
+    #     if upVote is None:
+    #         up = 0
+    #     else:
+    #         up = len(upVote)
+    #     downVote = Vote.query.filter(Vote.answerId == self.id).filter(Vote.voteDirection=='Down').all()
+    #     if downVote is None:
+    #         down = 0
+    #     else:
+    #         down = len(downVote)
+    #     count = count + up
+    #     count = count - down
+    #     hasVoted = Vote.query.filter(Vote.answerId == self.id).filter(Vote.userId == current_user.id).all()
+    #     print(len(hasVoted))
+    #     if len(hasVoted) == 0 :
+    #         voted = False
+    #     vote_id = Vote.query.filter(Vote.answerId == self.id).filter(Vote.userId == current_user.id).first()
+    #     if vote_id is not None:
+    #         vid = vote_id.id
+    #         vdir = vote_id.voteDirection
+    #     if vote_id is None:
+    #         vid = None
+    #         vdir = None
+    #     return {
+    #         "total" : count,
+    #         "hasVoted" : voted,
+    #         "voteId" : vid,
+    #         "voteDirection" : vdir
+    #     }
+
+    def to_dict_nested(self):
+        return {
+            'id': self.id,
+            'userId': self.userId,
+            'username': self.get_user(),
+            'questionId': self.questionId,
+            'body': self.body,
+            'created_on': self.created_on,
+            'updated_on': self.updated_on,
+            'Comments' : [comment.to_dict() for comment in self.comments],
+            # 'Votes' : self.get_votes()
+        }
