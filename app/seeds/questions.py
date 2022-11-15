@@ -49,22 +49,39 @@ def seed_questions():
     question15 = Question(
         userId=5 ,title='Besides the Joker, has any specific character ever won an Oscar for two different actors in two different movies?', body='Heath Ledger posthumously won an Oscar for his portrayal of "The Joker" in The Dark Knight, and Joaquin Phoenix won one for his portrayal of the same character in 2020s "Joker." Is there any other specific character that two different actors have ever won two different actors Oscars for their portrayal?', postCategory='movies'
     )
-    # t/DoesAnybodyElse
+    # t/DoesAnybodyElse (5 questions)
     question16 = Question(
-        userId=1 ,title='What is your favorite pirate game?', body='', postCategory='t/DoesAnybodyElse'
+        userId=1 ,title='DAE stay up too late despite needing to sleep because you do not want your free time to end?', body=None, postCategory='t/DoesAnybodyElse'
     )
     question17 = Question(
-        userId=2 ,title='What is your favorite pirate game?', body='', postCategory='t/DoesAnybodyElse'
+        userId=2 ,title='DAE think the music they listen to is really good while listening alone, but when showing it to others, they get extremely self-conscious about it?', body=None, postCategory='t/DoesAnybodyElse'
     )
     question18 = Question(
-        userId=3 ,title='What is your favorite pirate game?', body='', postCategory='t/DoesAnybodyElse'
+        userId=3 ,title='DAE not feel comfortable if they have things to do later in the day?', body='I cannot enjoy my current time if I know I have something to do later. For example, I have to take my mom to the airport at 5 PM, and I felt like my whole day was wasted because I could not just chill and crawl in bed knowing I had to be somewhere later, even though I was up at 7 AM. Anyone else have this problem?', postCategory='t/DoesAnybodyElse'
     )
     question19 = Question(
-        userId=4 ,title='What is your favorite pirate game?', body='', postCategory='t/DoesAnybodyElse'
+        userId=4 ,title='DAE continue to type their full sentence even when their keyboard freezes so they can watch the sentence type itself up when it unfreezes?', body=None, postCategory='t/DoesAnybodyElse'
     )
     question20 = Question(
-        userId=5 ,title='What is your favorite pirate game?', body='', postCategory='t/DoesAnybodyElse'
+        userId=5 ,title='DAE restart a good song if they are distracted and not appreciate the song enough?', body=None, postCategory='t/DoesAnybodyElse'
     )
+    # t/AskScience (5 questions)
+    question21 = Question(
+        userId=1 ,title='Why is it that during winter it is not uncommon to have days with abnormally high temperature and summer-like weather, but in the summer it never drops to winter-like weather for a day?', body='I live in the USA Midwest', postCategory='askScience'
+    )
+    question22 = Question(
+        userId=2 ,title='Do giraffes get struck by lightning more often than other animals?', body=None, postCategory='askScience'
+    )
+    question23 = Question(
+        userId=3 ,title='What percentage of my weight am I actually lifting when doing a push-up?', body=None, postCategory='askScience'
+    )
+    question24 = Question(
+        userId=4 ,title='If hand sanitizer kills 99.99 percent of germs, then will the surviving 0.01 percent make hand sanitizer resistant strains?', body=None, postCategory='askScience'
+    )
+    question25 = Question(
+        userId=5 ,title='Why do we have to "fall" asleep? Why can we not just decide to be asleep?', body=None, postCategory='askScience'
+    )
+
 
     db.session.add(question1)
     db.session.add(question2)
@@ -74,6 +91,23 @@ def seed_questions():
     db.session.add(question6)
     db.session.add(question7)
     db.session.add(question8)
+    db.session.add(question9)
+    db.session.add(question10)
+    db.session.add(question11)
+    db.session.add(question12)
+    db.session.add(question13)
+    db.session.add(question14)
+    db.session.add(question15)
+    db.session.add(question16)
+    db.session.add(question17)
+    db.session.add(question18)
+    db.session.add(question19)
+    db.session.add(question20)
+    db.session.add(question21)
+    db.session.add(question22)
+    db.session.add(question23)
+    db.session.add(question24)
+    db.session.add(question25)
 
     db.session.commit()
 
