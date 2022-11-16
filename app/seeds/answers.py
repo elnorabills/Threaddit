@@ -121,10 +121,10 @@ def seed_answers():
         userId=4, questionId=17, body='Yeah I like enjoying music by myself... some songs are just too deep that they make me uncomfortable sharing with other people'
     )
     answer38 = Answer(
-        userId=2, questionId=18, body='It almost feels like a countdown, and I cannot enjoy my time without, worrying about it. Even if it is nothing to even worry about.'
+        userId=2, questionId=18, body='It almost feels like a countdown, and I cannot enjoy my time without worrying about it. Even if it is nothing to even worry about.'
     )
     answer39 = Answer(
-        userId=3, questionId=19, body='Yes but half the time it’s REALLY FROZEN and only registers the last few characters.'
+        userId=3, questionId=19, body='Yes but half the time its REALLY FROZEN and only registers the last few characters.'
     )
     answer40 = Answer(
         userId=1, questionId=20, body='Allllll the time'
