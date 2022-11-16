@@ -30,8 +30,8 @@ def seed_comments():
     comment9 = Comment(
         userId=3, answerId=9, body='This is a great piece of advice!'
     )
-    comment = Comment(
-        userId=1, answerId=, body='This is so wholesome, I immediately feel better now.'
+    comment10 = Comment(
+        userId=1, answerId=10, body='This is so wholesome, I immediately feel better now.'
     )
     # comments to t/Gaming
     comment11 = Comment(
