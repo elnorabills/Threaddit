@@ -7,6 +7,8 @@ from app.api.auth_routes import validation_errors_to_error_messages
 
 bp_vote_routes = Blueprint('votes', __name__)
 
+
+# DELETE a vote
 @bp_vote_routes.route('/<int:voteId>', methods=['DELETE'])
 @login_required
 def delete_vote(voteId):
