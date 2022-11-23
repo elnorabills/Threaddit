@@ -4,6 +4,7 @@ from .comment import Comment
 from .vote import Vote
 from .user import User
 from datetime import datetime
+from flask_login import login_required, current_user
 
 class Question(db.Model):
     __tablename__ = 'questions'
