@@ -31,9 +31,8 @@ function QuestionListPage() {
     <div className="ql-container">
       <div className="ql-header">
         <div className="question-nav-header">
-          <h1>All Questions</h1>
         </div>
-        <button onClick={() => setShowModal(true)}>Ask Question</button>
+        <button onClick={() => setShowModal(true)}>Create Post</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <QuestionCreateForm setShowModal={setShowModal} />

@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import {
-  fetchCreateQuestions,
-  fetchAllQuestions,
-} from "../../../store/questions";
+import { useDispatch } from "react-redux";
+import { fetchCreateQuestions } from "../../../store/questions";
 import "./QuestionCreateForm.css";
 
 function QuestionCreateForm({ setShowModal }) {
+
   const dispatch = useDispatch();
   const history = useHistory();
 
