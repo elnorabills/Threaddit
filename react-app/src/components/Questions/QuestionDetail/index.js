@@ -1,8 +1,9 @@
+
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Question from "../Question";
-import AnswerList from "../../Answers/AnswerList";
+import AnswerListPage from "../../Answers/AnswerListPage";
 import { fetchQuestion } from "../../../store/questions";
 
 function QuestionDetail() {
@@ -27,7 +28,7 @@ function QuestionDetail() {
         question={question.one_question?.Question}
         refreshQuestion={refreshQuestion}
       />
-      <AnswerList
+      <AnswerListPage
         answerList={answers}
         questionId={parsedId}
         refreshQuestion={refreshQuestion}

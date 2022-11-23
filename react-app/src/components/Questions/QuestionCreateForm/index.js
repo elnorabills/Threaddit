@@ -12,6 +12,7 @@ function QuestionCreateForm({ setShowModal }) {
 
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [postCategory, setPostCategory] = useState("");
   const [validationErrors, setValidationErrors] = useState([]);
 
   const handleSubmit = async (e) => {
@@ -20,6 +21,7 @@ function QuestionCreateForm({ setShowModal }) {
     const payload = {
       title,
       body,
+      postCategory,
     };
 
     const createdQuestion = await dispatch(fetchCreateQuestions(payload))
