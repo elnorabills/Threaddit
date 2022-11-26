@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Modal } from "../../../Modal/Modal";
+import { Modal } from "../../../Modal-Context/Modal";
 import QuestionEditForm from "../QuestionEditForm";
 import QuestionDelete from "../QuestionDelete";
 import AnswerCreateForm from "../../Answers/AnswerCreateForm";

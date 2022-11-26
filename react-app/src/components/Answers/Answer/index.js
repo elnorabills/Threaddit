@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Modal } from "../../../Modal/Modal";
+import { Modal } from "../../../Modal-Context/Modal";
 import CommentListPage from "../../Comments/CommentListPage";
 import CommentCreateForm from "../../Comments/CommentCreateForm/index.js";
 import AnswerEditForm from "../AnswerEditForm";
