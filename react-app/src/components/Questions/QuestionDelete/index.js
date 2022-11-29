@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { fetchDeleteQuestions } from "../../../store/questions";
 
 function QuestionDelete({ setShowDeleteModal, questionId, refreshQuestion }) {
-    
+
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -32,7 +32,7 @@ function QuestionDelete({ setShowDeleteModal, questionId, refreshQuestion }) {
           ))}
       </ul>
       <p className="modal-form-title">
-        Are you sure you want to delete this question?
+        Are you sure you want to delete this post?
       </p>
       <div>
         <button

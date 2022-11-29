@@ -5,7 +5,7 @@ import { fetchEditQuestions } from "../../../store/questions";
 import "./QuestionEditForm.css";
 
 function QuestionEditForm({ setShowEditModal, question, refreshQuestion }) {
-    
+
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState(question?.title);
@@ -36,9 +36,9 @@ function QuestionEditForm({ setShowEditModal, question, refreshQuestion }) {
 
   return (
     <form className="modal-container" onSubmit={handleSubmit}>
-      <h2 className="modal-form-title">Edit your question</h2>
+      <h2 className="modal-form-title">Edit Post</h2>
 
-      <input
+      <textarea
         className="modal-input-title"
         type="text"
         value={title}
@@ -51,7 +51,7 @@ function QuestionEditForm({ setShowEditModal, question, refreshQuestion }) {
         value={body}
         onChange={(e) => setBody(e.target.value)}
         name="body"
-        required
+        placeholder="Text (optional)"
       />
       <ul>
         {errors.length > 0 &&

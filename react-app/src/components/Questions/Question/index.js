@@ -62,9 +62,9 @@ function Question({ question, refreshQuestion }) {
         <div className="q-posted-by">Posted by: {question?.username}</div>
       </div>
       <div className="postAnswer">
-        {!isOwner && (
+        { (
           <button onClick={() => setShowAnswerModal(true)}>
-            Post Your Answer
+            Comment
           </button>
         )}
         {showAnswerModal && (

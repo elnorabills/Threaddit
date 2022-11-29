@@ -34,11 +34,13 @@ const NavBar = () => {
         )} */}
         <nav className="navBar-ul-container">
           <ul className="navBar-ul">
-            <li>
-              <NavLink to="/home" exact={true} activeClassName="active">
-                Home
-              </NavLink>
-            </li>
+            {isLoggedIn && (
+              <li>
+                <NavLink to="/home" exact={true} activeClassName="active">
+                  Home
+                </NavLink>
+              </li>
+            )}
             {!isLoggedIn && (
               <li>
                 <DemoUserLogin />
@@ -54,13 +56,13 @@ const NavBar = () => {
                 <SignUpModalForm />
               </li>
             )}
-            {isLoggedIn && (
+            {/* {isLoggedIn && (
               <li>
                 <NavLink to="/users" exact={true} activeClassName="active">
                   Users
                 </NavLink>
               </li>
-            )}
+            )} */}
             {isLoggedIn && (
               <li>
                 <NavLink to="/profile" exact={true} activeClassName="active">

@@ -27,13 +27,13 @@ function CommentCreateForm({ answerId, refreshQuestion, setCommentModal }) {
   };
   return (
     <form className="modal-container" onSubmit={onSubmit}>
-      <h2 className="modal-form-title">Post Your Comment</h2>
+      <h2 className="modal-form-title">Respond To Comment</h2>
       <textarea
         className="modal-input-body"
         type="text"
         value={body}
         onChange={(e) => setBody(e.target.value)}
-        placeholder="Write your comment here"
+        placeholder="What are your thoughts?"
         required
       />
       <ul className="errorMsg">
