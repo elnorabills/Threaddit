@@ -8,10 +8,11 @@
     padding-top: 10px;
     border-radius: 3px;
     margin-bottom: 12px;
+    border: solid 1px rgb(187, 185, 185);
 }
 
 .qli-container:hover {
-    border: black 0.7px solid;
+    border: black 0.9px solid;
 }
 
 .qli-link {
@@ -27,6 +28,11 @@
 
 .qli-title {
     font-family: 'Josefin Sans', cursive;
+}
+
+.qli-title:hover {
+    font-family: 'Josefin Sans', cursive;
+    color: black;
 }
 
 .qli-username {

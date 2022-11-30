@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Question from "../Question";
 import AnswerListPage from "../../Answers/AnswerListPage";
 import { fetchQuestion } from "../../../store/questions";
+import "./QuestionDetail.css"
 
 function QuestionDetail() {
   const { questionId } = useParams();
@@ -24,15 +25,17 @@ function QuestionDetail() {
 
   return (
     <div className="qdp-container">
-      <Question
-        question={question.one_question?.Question}
-        refreshQuestion={refreshQuestion}
-      />
-      <AnswerListPage
-        answerList={answers}
-        questionId={parsedId}
-        refreshQuestion={refreshQuestion}
-      />
+      <div className="q-thread">
+        <Question
+          question={question.one_question?.Question}
+          refreshQuestion={refreshQuestion}
+        />
+        <AnswerListPage
+          answerList={answers}
+          questionId={parsedId}
+          refreshQuestion={refreshQuestion}
+        />
+      </div>
     </div>
   );
 }

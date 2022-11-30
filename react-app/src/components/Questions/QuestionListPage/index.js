@@ -30,7 +30,7 @@ function QuestionListPage() {
   return (
     <div className="ql-container">
       <div className="ql-header">
-        <button onClick={() => setShowModal(true)}>Create Post</button>
+        <button className="cp-button" onClick={() => setShowModal(true)}>Create Post</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <QuestionCreateForm setShowModal={setShowModal} />
