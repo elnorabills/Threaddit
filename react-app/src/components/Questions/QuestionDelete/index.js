@@ -14,7 +14,7 @@ function QuestionDelete({ setShowDeleteModal, questionId, refreshQuestion }) {
   const onDelete = () => {
     dispatch(fetchDeleteQuestions(questionId))
       .then(() => setShowDeleteModal(false))
-      .then(() => history.push("/profile"))
+      .then(() => history.push("/home"))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);

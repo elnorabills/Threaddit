@@ -42,14 +42,14 @@ function QuestionCreateForm({ setShowModal }) {
 
   return (
     <form onSubmit={handleSubmit} className="modal-container">
-      <h2 className="modal-form-title">Ask a question</h2>
-      <input
+      <h2 className="modal-form-title">Create A Post</h2>
+      <textarea
         className="modal-input-title"
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         name="title"
-        placeholder="Write your question here"
+        placeholder="Title"
         required
       />
       <textarea
@@ -57,8 +57,7 @@ function QuestionCreateForm({ setShowModal }) {
         value={body}
         onChange={(e) => setBody(e.target.value)}
         name="body"
-        placeholder="What are the details of your problem?"
-        required
+        placeholder="Text (optional)"
       />
       {validationErrors && (
         <ul>

@@ -6,7 +6,7 @@ import LoginModalForm from "../auth/LoginModalForm";
 import SignUpModalForm from "../auth/SingUpModalForm";
 import LogoutButton from "../auth/LogoutButton";
 import DemoUserLogin from "../auth/DemoUserLogin";
-// import logo from "../../assets/logo-stackoverflow.png";
+import logo from "../../images/threadit_logo.png"
 import "./Nav-Bar.css";
 
 
@@ -22,7 +22,7 @@ const NavBar = () => {
     <>
       <div className="navBar-top" />
       <div className="navBar-container">
-        {/* {!isLoggedIn && (
+        {!isLoggedIn && (
           <NavLink to="/" className="logo">
             <img className="logo" src={logo} />
           </NavLink>
@@ -31,16 +31,9 @@ const NavBar = () => {
           <NavLink to="/home" className="logo">
             <img className="logo" src={logo} />
           </NavLink>
-        )} */}
+        )}
         <nav className="navBar-ul-container">
           <ul className="navBar-ul">
-            {isLoggedIn && (
-              <li>
-                <NavLink to="/home" exact={true} activeClassName="active">
-                  Home
-                </NavLink>
-              </li>
-            )}
             {!isLoggedIn && (
               <li>
                 <DemoUserLogin />
@@ -56,17 +49,11 @@ const NavBar = () => {
                 <SignUpModalForm />
               </li>
             )}
-            {/* {isLoggedIn && (
-              <li>
-                <NavLink to="/users" exact={true} activeClassName="active">
-                  Users
-                </NavLink>
-              </li>
-            )} */}
             {isLoggedIn && (
               <li>
                 <NavLink to="/profile" exact={true} activeClassName="active">
                   <i className="fa-solid fa-user fa-xl"></i>
+                  {/* <i className="fa-solid fa-user"></i> */}
                 </NavLink>
               </li>
             )}
