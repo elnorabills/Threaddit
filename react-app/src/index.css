@@ -1,5 +1,7 @@
 /* TODO Add site wide styles */
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 
 html *{
     font-family: sans-serif;
+
 }

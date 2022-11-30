@@ -7,10 +7,10 @@ function QuestionListItem({ question }) {
 
   return (
     <div className="qli-container">
+      <p className="qli-username">Posted by: {question?.username}</p>
       <NavLink className="qli-link" to={`/questions/${question.id}`}>
         <h3 className="qli-title">{question?.title}</h3>
       </NavLink>
-      <p>Posted by: {question?.username}</p>
     </div>
   );
 }

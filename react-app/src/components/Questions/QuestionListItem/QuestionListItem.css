@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+.qli-container {
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+}
+
+.qli-container:hover {
+    border: black 0.7px solid;
+}
+
+.qli-link {
+    color: black;
+    text-decoration: none;
+}
+
+.qli-link:visited {
+    color: rgb(135, 132, 132);
+    text-decoration: none;
+    font-family: 'Josefin Sans', cursive;
+}
+
+.qli-title {
+    font-family: 'Josefin Sans', cursive;
+}
+
+.qli-username {
+    font-size: 12px;
+    color: rgb(135, 132, 132);
+}
