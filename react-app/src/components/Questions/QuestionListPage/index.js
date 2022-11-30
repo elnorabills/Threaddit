@@ -30,8 +30,6 @@ function QuestionListPage() {
   return (
     <div className="ql-container">
       <div className="ql-header">
-        <div className="question-nav-header">
-        </div>
         <button onClick={() => setShowModal(true)}>Create Post</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>

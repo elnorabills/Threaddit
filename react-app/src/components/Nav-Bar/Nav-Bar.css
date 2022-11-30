@@ -4,11 +4,15 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 2em;
     background-color: white;
     padding-left: 20px;
     padding-right: 20px;
-    box-shadow: 0 4px 2px -2px rgb(193, 192, 192);
+    padding-top: 4px;
+    box-shadow: 0 0 10px 0 rgb(56, 56, 56);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .navBar-ul > li {
@@ -36,10 +40,11 @@ a.active {
 .navBar-ul-container {
     display: flex;
     align-items: center;
+    background-color: white;
 }
 
 .logo{
-
+    background-color: white;
     width: 200px;
     height:auto;
     padding-top: 2px;

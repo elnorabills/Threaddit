@@ -1,0 +1,11 @@
+
+
+.ql-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ql-container {
+    padding-top: 45px;
+}
