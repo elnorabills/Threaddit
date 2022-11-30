@@ -9,3 +9,22 @@
 .ql-container {
     padding-top: 45px;
 }
+
+.cp-button {
+    width: 665px;
+    height: 50px;
+    border: none;
+    background-color: white;
+    border-radius: 3px;
+    color: rgb(135, 132, 132);
+    border: solid 1px rgb(187, 185, 185);
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+.cp-button:hover {
+    border: solid 0.9px black;
+    color: white;
+    font-weight: 700;
+    background-color: rgb(185, 3, 3);
+}
