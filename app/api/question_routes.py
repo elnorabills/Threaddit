@@ -82,7 +82,7 @@ def update_question(questionId):
 
 
 # DELETE a question
-@bp_question_routes.route('/<int:questionId>', methods=['PUT'])
+@bp_question_routes.route('/<int:questionId>', methods=['DELETE'])
 @login_required
 def delete_question(questionId):
     """

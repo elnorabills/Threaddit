@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllQuestions } from "../../../store/questions";
 import QuestionListItem from "../QuestionListItem";
-import { Modal } from "../../../Modal/Modal";
+import { Modal } from "../../../Modal-Context/Modal";
 import QuestionCreateForm from "../QuestionCreateForm";
 import "./QuestionListPage.css";
 

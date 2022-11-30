@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Modal } from "../../../Modal/Modal";
+import { Modal } from "../../../Modal-Context/Modal";
 import CommentListPage from "../../Comments/CommentListPage";
 import CommentCreateForm from "../../Comments/CommentCreateForm/index.js";
 import AnswerEditForm from "../AnswerEditForm";
@@ -9,6 +9,7 @@ import AnswerDelete from "../AnswerDelete/index.js";
 import "./Answer.css";
 
 function Answer({ answer, refreshQuestion }) {
+
   const [showEditModal, setShowEditModal] = useState(false);
   const [deleteAnswerModal, setDeleteAnswerModal] = useState(false);
   const [commentModal, setCommentModal] = useState(false);
@@ -57,7 +58,7 @@ function Answer({ answer, refreshQuestion }) {
             </Modal>
           )}
         </div>
-        <div className="a-posted-by">Answered by: {answer?.username}</div>
+        <div className="a-posted-by">Commented by: {answer?.username}</div>
       </div>
 
       <div className="answer-commentlist">
@@ -73,7 +74,7 @@ function Answer({ answer, refreshQuestion }) {
           className="link link-button"
           onClick={() => setCommentModal(true)}
         >
-          Add a Comment
+          Reply
         </button>
         {commentModal && (
           <Modal onClose={() => setCommentModal(false)}>

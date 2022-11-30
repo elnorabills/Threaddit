@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Modal } from "../../../Modal/Modal";
+import { Modal } from "../../../Modal-Context/Modal";
 import QuestionEditForm from "../QuestionEditForm";
 import QuestionDelete from "../QuestionDelete";
 import AnswerCreateForm from "../../Answers/AnswerCreateForm";
@@ -62,9 +62,9 @@ function Question({ question, refreshQuestion }) {
         <div className="q-posted-by">Posted by: {question?.username}</div>
       </div>
       <div className="postAnswer">
-        {!isOwner && (
+        { (
           <button onClick={() => setShowAnswerModal(true)}>
-            Post Your Answer
+            Comment
           </button>
         )}
         {showAnswerModal && (
