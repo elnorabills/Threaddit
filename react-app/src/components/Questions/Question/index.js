@@ -12,61 +12,61 @@ function Question({ question, refreshQuestion }) {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showAnswerModal, setShowAnswerModal] = useState(false);
-
   const sessionUser = useSelector((state) => state.session.user);
   const isOwner = sessionUser.id === question?.userId;
 
   return (
     <div className="q-container">
       <div className="q-detail">
+        <div className="q-posted-by">Posted by: {question?.username}</div>
         <div className="q-title">{question?.title}</div>
         <div className="q-body">{question?.body}</div>
-      </div>
-      <div className="q-bottom">
-        <div className="q-actions-container">
-          {isOwner && (
-            <button
-              className="link link-button"
-              onClick={() => setShowEditModal(true)}
-            >
-              Edit{" "}
-            </button>
-          )}
-          {showEditModal && (
-            <Modal onClose={() => setShowEditModal(false)}>
-              <QuestionEditForm
-                setShowEditModal={setShowEditModal}
-                question={question}
-                refreshQuestion={refreshQuestion}
-              />
-            </Modal>
-          )}
-          {isOwner && (
-            <button
-              className="link link-button"
-              onClick={() => setShowDeleteModal(true)}
-            >
-              Delete
-            </button>
-          )}
-          {showDeleteModal && (
-            <Modal onClose={() => setShowDeleteModal(false)}>
-              <QuestionDelete
-                setShowDeleteModal={setShowDeleteModal}
-                questionId={question?.id}
-                refreshQuestion={refreshQuestion}
-              />
-            </Modal>
-          )}
+
+        <div className="q-bottom">
+          <div className="q-actions-container">
+            {isOwner && (
+              <button
+                className="link link-button"
+                onClick={() => setShowEditModal(true)}
+              >
+                Edit{" "}
+              </button>
+            )}
+            {showEditModal && (
+              <Modal onClose={() => setShowEditModal(false)}>
+                <QuestionEditForm
+                  setShowEditModal={setShowEditModal}
+                  question={question}
+                  refreshQuestion={refreshQuestion}
+                />
+              </Modal>
+            )}
+            {isOwner && (
+              <button
+                className="link link-button"
+                onClick={() => setShowDeleteModal(true)}
+              >
+                Delete
+              </button>
+            )}
+            {showDeleteModal && (
+              <Modal onClose={() => setShowDeleteModal(false)}>
+                <QuestionDelete
+                  setShowDeleteModal={setShowDeleteModal}
+                  questionId={question?.id}
+                  refreshQuestion={refreshQuestion}
+                />
+              </Modal>
+            )}
+          </div>
         </div>
-        <div className="q-posted-by">Posted by: {question?.username}</div>
       </div>
       <div className="postAnswer">
-        { (
+        {
           <button onClick={() => setShowAnswerModal(true)}>
-            Comment
+            Comment as {sessionUser?.username}
           </button>
-        )}
+        }
         {showAnswerModal && (
           <Modal onClose={() => setShowAnswerModal(false)}>
             <AnswerCreateForm
