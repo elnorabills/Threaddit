@@ -14,13 +14,16 @@ function CommentListItem({ comment, refreshQuestion }) {
   return (
     <div className="cli-container">
       <div className="cli-detail">
-        <div className="commented-by">{comment?.username}</div>
+        <div className="commented-by">
+          <i className="fa-solid fa-user" id="a-user"></i>
+          {comment?.username}
+        </div>
         <p className="comment-body">{comment?.body}</p>
       </div>
       <div className="cli-actions-container">
         {isOwner && (
           <button
-            className="link link-button"
+            className="comment-delete-button"
             onClick={() => setShowDeleteModal(true)}
           >
             Delete

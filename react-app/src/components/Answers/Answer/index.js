@@ -19,14 +19,17 @@ function Answer({ answer, refreshQuestion }) {
   return (
     <div className="answer-container">
       <div className="answer-detail">
-        <div className="a-posted-by">{answer?.username}</div>
+        <div className="a-posted-by">
+          <i className="fa-solid fa-user" id="a-user"></i>
+          {answer?.username}
+        </div>
         <p className="answer-body">{answer?.body}</p>
       </div>
       <div className="answer-bottom">
         <div className="answer-actions-container">
           {isOwner && (
             <button
-              className="link link-button"
+              className="comment-delete-button"
               onClick={() => setShowEditModal(true)}
             >
               Edit
@@ -43,7 +46,7 @@ function Answer({ answer, refreshQuestion }) {
           )}
           {isOwner && (
             <button
-              className="link link-button"
+              className="comment-delete-button"
               onClick={() => setDeleteAnswerModal(true)}
             >
               Delete
@@ -58,11 +61,11 @@ function Answer({ answer, refreshQuestion }) {
               />
             </Modal>
           )}
-          <div>
             <button
               className="reply-button"
               onClick={() => setCommentModal(true)}
             >
+              <i className="fa-regular fa-message"></i>
               Reply
             </button>
             {commentModal && (
@@ -74,7 +77,6 @@ function Answer({ answer, refreshQuestion }) {
                 />
               </Modal>
             )}
-          </div>
         </div>
       </div>
 
