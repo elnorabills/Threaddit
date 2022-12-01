@@ -8,7 +8,7 @@ function AnswerListPage({ answerList, refreshQuestion }) {
     <div className="a-list-container">
       <div className="a-list-detail">
         <div className="answerList-size">
-          <h4>{answerList?.length} Comments</h4>
+          {/* <h4>{answerList?.length} Comments</h4> */}
         </div>
         {answerList &&
           answerList.map((answer) => {

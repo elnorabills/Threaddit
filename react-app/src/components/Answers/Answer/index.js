@@ -19,7 +19,8 @@ function Answer({ answer, refreshQuestion }) {
   return (
     <div className="answer-container">
       <div className="answer-detail">
-        <p>{answer?.body}</p>
+        <div className="a-posted-by">{answer?.username}</div>
+        <p className="answer-body">{answer?.body}</p>
       </div>
       <div className="answer-bottom">
         <div className="answer-actions-container">
@@ -57,8 +58,24 @@ function Answer({ answer, refreshQuestion }) {
               />
             </Modal>
           )}
+          <div>
+            <button
+              className="reply-button"
+              onClick={() => setCommentModal(true)}
+            >
+              Reply
+            </button>
+            {commentModal && (
+              <Modal onClose={() => setCommentModal(false)}>
+                <CommentCreateForm
+                  setCommentModal={setCommentModal}
+                  answerId={answer?.id}
+                  refreshQuestion={refreshQuestion}
+                />
+              </Modal>
+            )}
+          </div>
         </div>
-        <div className="a-posted-by">Commented by: {answer?.username}</div>
       </div>
 
       <div className="answer-commentlist">
@@ -67,23 +84,6 @@ function Answer({ answer, refreshQuestion }) {
             commentList={answer.Comments}
             refreshQuestion={refreshQuestion}
           ></CommentListPage>
-        )}
-      </div>
-      <div>
-        <button
-          className="link link-button"
-          onClick={() => setCommentModal(true)}
-        >
-          Reply
-        </button>
-        {commentModal && (
-          <Modal onClose={() => setCommentModal(false)}>
-            <CommentCreateForm
-              setCommentModal={setCommentModal}
-              answerId={answer?.id}
-              refreshQuestion={refreshQuestion}
-            />
-          </Modal>
         )}
       </div>
     </div>
