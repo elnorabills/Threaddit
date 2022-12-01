@@ -26,7 +26,7 @@ function Question({ question, refreshQuestion }) {
           <div className="q-actions-container">
             {isOwner && (
               <button
-                className="link link-button"
+                className="link-edit-button"
                 onClick={() => setShowEditModal(true)}
               >
                 Edit{" "}
@@ -43,7 +43,7 @@ function Question({ question, refreshQuestion }) {
             )}
             {isOwner && (
               <button
-                className="link link-button"
+                className="link-delete-button"
                 onClick={() => setShowDeleteModal(true)}
               >
                 Delete
@@ -63,8 +63,8 @@ function Question({ question, refreshQuestion }) {
       </div>
       <div className="postAnswer">
         {
-          <button onClick={() => setShowAnswerModal(true)}>
-            Comment as {sessionUser?.username}
+          <button className="q-comment-button" onClick={() => setShowAnswerModal(true)}>
+            Comment as{" "}<div className="red-username">{sessionUser?.username}</div>
           </button>
         }
         {showAnswerModal && (

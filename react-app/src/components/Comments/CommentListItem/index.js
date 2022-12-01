@@ -14,9 +14,8 @@ function CommentListItem({ comment, refreshQuestion }) {
   return (
     <div className="cli-container">
       <div className="cli-detail">
-        <p>
-          {comment?.body} - {comment?.username}
-        </p>
+        <div className="commented-by">{comment?.username}</div>
+        <p className="comment-body">{comment?.body}</p>
       </div>
       <div className="cli-actions-container">
         {isOwner && (
