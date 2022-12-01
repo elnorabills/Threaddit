@@ -10,23 +10,37 @@
     font-weight: 300;
     margin-bottom: 12px;
     margin-top: 12px;
+    padding-left: 24px;
 }
 
 .answer-commentlist {
-    padding-top: 20px;
-    padding-left: 30px;
+    padding-top: 6px;
+    padding-left: 50px;
+}
+
+.answer-actions-container {
+    padding-left: 7px;
 }
 
 .reply-button {
-    margin-right: 20px;
     background-color: transparent;
     border: none;
     font-size: 13px;
     font-weight: 600;
     color: rgb(94, 93, 93);
+    margin-left: 15px;
 }
 
 .reply-button:hover {
     color: rgb(185, 3, 3);
     border-bottom: solid rgb(185, 3, 3) 1px;
+}
+
+.fa-message {
+    margin-right: 5px;
+}
+
+#a-user {
+    margin-right: 6px;
+    font-size: 17px;
 }

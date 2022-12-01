@@ -23,6 +23,12 @@
     margin-bottom: 10px;
 }
 
+.q-body {
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
 .q-bottom{
     display: flex;
     flex-direction: row;
