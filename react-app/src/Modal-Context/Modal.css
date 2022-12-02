@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
 #modal {
   position: fixed;
   top: 0;
@@ -20,13 +22,13 @@
 
 #modal-content {
   position: absolute;
-  background-color:white;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   height: auto;
   width: auto;
+  border-radius: 7px;
 }
 
 input {
@@ -39,14 +41,17 @@ input {
     align-items: center;
     flex-direction: column;
     padding: 20px;
-    width: 400px;
-    background-color: rgb(49, 46, 46);
+    width: 600px;
+    height: 400px;
+    /* background-color: rgb(49, 46, 46); */
+    background-color: white;
     box-shadow: 0 0 25px 0 black;
+    border-radius: 7px;
 }
 
 .modal-form-title {
-    font-family: sans-serif;
-    color: white;
+    font-family: 'Josefin Sans', cursive;
+    color: black;
     font-size: 30px;
 }
 
@@ -60,15 +65,36 @@ input {
 .modal-input-title {
     padding: 10px;
     font-size: 18px;
-    width: 374px;
+    width: 550px;
     border-radius: 10px;
+    margin-bottom: 20px;
+    border: black solid 1px;
+    background-color: rgb(226, 224, 224);
 }
 
 .modal-input-body {
     padding: 10px;
     font-size: 18px;
-    width: 374px;
+    width: 550px;
+    height: 150px;
     border-radius: 10px;
+    border: black solid 1px;
+    background-color: rgb(226, 224, 224);
+}
+
+.modal-input-title:hover {
+  background-color: white;
+  border: 1px solid rgb(185, 3, 3);
+}
+
+.modal-input-body:hover {
+  background-color: white;
+  border: 1px solid rgb(185, 3, 3);
+}
+
+.modal-buttons-div {
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-btn {
@@ -76,21 +102,23 @@ input {
     padding: 0.8em;
     box-shadow: inset 0 1px 0 0 hsl(0deg 0% 100% / 40%);
     border: none;
-    border-radius: 2px;
-    height: 40px;
-    margin: 5px;
+    border-radius: 10px;
+    height: 46px;
+    width: 550px;
+    font-size: 16px;
 }
 
 .modal-btn:hover {
-    background-color: white;
-    transition: 0.7s;
-    color: black;
+  font-weight: 600;
+    background-color: black;
+    /* transition: 0.7s; */
 }
 
 .modal-submit-btn {
-  background-color: #0a95ff;
+  background-color: rgb(185, 3, 3);
+  margin-bottom: 17px;
 }
 
 .modal-cancel-btn {
-  background-color: rgb(255, 115, 0);
+  background-color: rgb(185, 3, 3);
 }
