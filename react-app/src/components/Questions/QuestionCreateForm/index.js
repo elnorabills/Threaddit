@@ -68,7 +68,7 @@ function QuestionCreateForm({ setShowModal }) {
           ))}
         </ul>
       )}
-      <div>
+      <div className="modal-buttons-div">
         <button className="modal-btn modal-submit-btn" type="submit">
           Submit
         </button>

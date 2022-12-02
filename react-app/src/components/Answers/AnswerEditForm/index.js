@@ -29,7 +29,7 @@ function AnswerEditForm({ answer, refreshQuestion, setShowEditModal }) {
 
   return (
     <div className="modal-container">
-      <h2 className="modal-form-title">Edit Answer</h2>
+      <h2 className="modal-form-title">Edit Comment</h2>
       <form className="answerCreateForm" onSubmit={onSubmit}>
         <textarea
           className="modal-input-body"

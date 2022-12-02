@@ -30,7 +30,7 @@ function AnswerDelete({ setDeleteAnswerModal, refreshQuestion, answerId }) {
           ))}
       </ul>
       <p className="modal-form-title">
-        Are you sure you want to delete this answer?
+        Are you sure you want to delete this comment?
       </p>
       <div>
         <button

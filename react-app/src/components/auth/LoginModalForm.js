@@ -4,14 +4,14 @@ import { Modal } from "../../Modal-Context/Modal";
 import LoginForm from "./LoginForm";
 
 function LoginModalForm() {
-    
+
   const [showModal, setShowModal] = useState(false);
 
   return (
     <div>
       <button
         type="button"
-        className="login-btn"
+        className="nav-buttons"
         onClick={() => setShowModal(true)}
       >
         Log In

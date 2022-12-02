@@ -5,7 +5,7 @@ import { login } from "../../store/session";
 import { Redirect } from "react-router-dom";
 
 const DemoUserLogin = () => {
-    
+
   const [errors, setErrors] = useState([]);
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const DemoUserLogin = () => {
 
   return (
     <form onSubmit={onLogin}>
-      <button type="submit">Demo User</button>
+      <button className="nav-buttons" type="submit">Demo User</button>
     </form>
   );
 };
