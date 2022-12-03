@@ -27,12 +27,12 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/home' />;
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <h1>Log In</h1>
+    <form className="modal-container" onSubmit={onLogin}>
+      <h2 className="modal-form-title">Log In</h2>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
@@ -40,9 +40,10 @@ const LoginForm = () => {
       </div>
       <div>
         <input
-          name='email'
-          type='text'
-          placeholder='Email'
+          className='modal-input-title'
+          name="email"
+          type="text"
+          placeholder="Email"
           value={email}
           onChange={updateEmail}
           required
@@ -50,14 +51,15 @@ const LoginForm = () => {
       </div>
       <div>
         <input
-          name='password'
-          type='password'
-          placeholder='Password'
+          className='modal-input-title'
+          name="password"
+          type="password"
+          placeholder="Password"
           value={password}
           onChange={updatePassword}
           required
         />
-        <button type='submit'>Login</button>
+        <button className="modal-btn modal-submit-btn" type="submit">Login</button>
       </div>
     </form>
   );
