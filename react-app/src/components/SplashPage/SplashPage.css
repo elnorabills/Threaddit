@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+.splash-container {
+    display: flex;
+    justify-content: center;
+    height: 600px;
+    width: 100%;
+    padding-top: 50px;
+    background-color: rgb(231, 231, 232);
+}
+
+.splash-h1 {
+    font-family: 'Josefin Sans', cursive;
+    font-size: 50px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.splash-logo {
+    padding-top: 160px;
+    height: 90px;
+    width: 90px;
+}
+
+.message-box-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#message-box-small {
+    font-size: 60px;
+    color: rgb(185, 3, 3);
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+#message-box-left {
+    font-size: 160px;
+    padding-left: 30px;
+    color: white;
+    position: relative;
+}
+
+#message-box-right {
+    font-size: 160px;
+    padding-right: 30px;
+}
+
+.splash-details-one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.para-one {
+    text-align: center;
+    padding-right: 130px;
+    padding-left: 130px;
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 300;
+}
