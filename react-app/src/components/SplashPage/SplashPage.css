@@ -22,30 +22,55 @@
     width: 90px;
 }
 
-.message-box-container {
+.logo-button {
+    background: transparent;
+    border: none;
+}
+
+.message-box-container-left {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: black;
+    border-radius: 0 300px 300px 0;
+    padding-right: 90px;
 }
 
-#message-box-small {
+.message-box-container-right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(185, 3, 3);
+    padding-left: 90px;
+    border-radius: 300px 0 0 300px;
+}
+
+#message-box-small-left {
     font-size: 60px;
     color: rgb(185, 3, 3);
-    top: 0;
-    left: 0;
     position: absolute;
+    padding-left: 110px;
+    padding-bottom: 160px;
 }
 
 #message-box-left {
-    font-size: 160px;
+    font-size: 170px;
     padding-left: 30px;
     color: white;
-    position: relative;
+    margin: 0px;
 }
 
 #message-box-right {
-    font-size: 160px;
+    font-size: 170px;
     padding-right: 30px;
+}
+
+#message-box-small-right {
+    font-size: 60px;
+    color: white;
+    position: absolute;
+    padding-left: 30px;
+    padding-bottom: 160px;
 }
 
 .splash-details-one {
@@ -56,8 +81,8 @@
 
 .para-one {
     text-align: center;
-    padding-right: 130px;
-    padding-left: 130px;
+    padding-right: 30px;
+    padding-left: 30px;
     font-size: 20px;
     line-height: 27px;
     font-weight: 300;
