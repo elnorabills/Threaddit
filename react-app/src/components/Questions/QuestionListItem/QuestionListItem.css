@@ -20,11 +20,11 @@
     text-decoration: none;
 }
 
-.qli-link:visited {
+/* .qli-link:visited {
     color: rgb(135, 132, 132);
     text-decoration: none;
     font-family: 'Josefin Sans', cursive;
-}
+} */
 
 .qli-title {
     font-family: 'Josefin Sans', cursive;
@@ -34,6 +34,7 @@
 .qli-title:hover {
     font-family: 'Josefin Sans', cursive;
     color: black;
+    font-size: 1.18em;
 }
 
 .qli-username {

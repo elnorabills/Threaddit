@@ -8,6 +8,7 @@ import NavBar from "./components/Nav-Bar/index"
 import HomePage from './components/HomePage';
 import QuestionDetail from './components/Questions/QuestionDetail';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import UserProfile from './components/UserProfile';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import SplashPage from './components/SplashPage';
@@ -38,6 +39,9 @@ function App() {
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
         </Route>
+        <ProtectedRoute path="/profile" exact={true}>
+          <UserProfile />
+        </ProtectedRoute>
         <ProtectedRoute path="/users" exact={true}>
           <UsersList />
         </ProtectedRoute>
