@@ -10,3 +10,8 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+.comment-num {
+    color: rgb(89, 88, 88);
+    font-weight: 300;
+}

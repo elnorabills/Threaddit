@@ -12,15 +12,17 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
-  const onSignUp = async (e) => {
-    e.preventDefault();
-    if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
-      if (data) {
-        setErrors(data)
+    const onSignUp = async (e) => {
+      e.preventDefault();
+      if (password === repeatPassword) {
+        const data = await dispatch(signUp(username, email, password));
+        if (data) {
+          setErrors(data);
+        }
+      } else {
+        setErrors(["Passwords must match."]);
       }
-    }
-  };
+    };
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -39,58 +41,71 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/home' />;
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <h1>Sign Up</h1>
+    <form className="modal-container" onSubmit={onSignUp}>
       <div>
+        {errors.map((error, ind) => (
+          <div className="errors" key={ind}>
+            {error}
+          </div>
+        ))}
+      </div>
+      <h2 className="modal-form-title">Sign Up</h2>
+      {/* <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
-      </div>
+      </div> */}
       <div>
         <input
-          type='text'
-          name='username'
+          className="modal-input-title"
+          type="text"
+          name="username"
           onChange={updateUsername}
           value={username}
-          placeholder="USERNAME"
+          placeholder="Username"
           required
         ></input>
       </div>
       <div>
         <input
-          type='text'
-          name='email'
+          className="modal-input-title"
+          type="text"
+          name="email"
           onChange={updateEmail}
           value={email}
-          placeholder="EMAIL"
+          placeholder="Email"
           required
         ></input>
       </div>
       <div>
         <input
-          type='password'
-          name='password'
+          className="modal-input-title"
+          type="password"
+          name="password"
           onChange={updatePassword}
           value={password}
-          placeholder="PASSWORD"
+          placeholder="Password"
           required
         ></input>
       </div>
       <div>
         <input
-          type='password'
-          name='repeat_password'
+          className="modal-input-title"
+          type="password"
+          name="repeat_password"
           onChange={updateRepeatPassword}
           value={repeatPassword}
-          placeholder="REPEAT PASSWORD"
+          placeholder="Repeat Password"
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button className="modal-btn modal-submit-btn" type="submit">
+        Sign Up
+      </button>
     </form>
   );
 };

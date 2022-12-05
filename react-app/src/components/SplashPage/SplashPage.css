@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+.splash-container {
+    display: flex;
+    justify-content: center;
+    height: 600px;
+    width: 100%;
+    padding-top: 50px;
+    background-color: rgb(231, 231, 232);
+}
+
+.splash-h1 {
+    font-family: 'Josefin Sans', cursive;
+    font-size: 50px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.splash-logo {
+    padding-top: 160px;
+    height: 90px;
+    width: 90px;
+}
+
+.logo-button {
+    background: transparent;
+    border: none;
+}
+
+.message-box-container-left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    border-radius: 0 300px 300px 0;
+    padding-right: 90px;
+}
+
+.message-box-container-right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(185, 3, 3);
+    padding-left: 90px;
+    border-radius: 300px 0 0 300px;
+}
+
+#message-box-small-left {
+    font-size: 60px;
+    color: rgb(185, 3, 3);
+    position: absolute;
+    padding-left: 110px;
+    padding-bottom: 160px;
+}
+
+#message-box-left {
+    font-size: 170px;
+    padding-left: 30px;
+    color: white;
+    margin: 0px;
+}
+
+#message-box-right {
+    font-size: 170px;
+    padding-right: 30px;
+}
+
+#message-box-small-right {
+    font-size: 60px;
+    color: white;
+    position: absolute;
+    padding-left: 30px;
+    padding-bottom: 160px;
+}
+
+.splash-details-one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.para-one {
+    text-align: center;
+    padding-right: 30px;
+    padding-left: 30px;
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 300;
+}
