@@ -1,4 +1,5 @@
 from app.models import db, Answer
+import os
 
 def seed_answers():
     # Answers to t/AskThreaddit
@@ -216,5 +217,8 @@ def seed_answers():
     db.session.commit()
 
 def undo_answers():
-    db.session.execute('TRUNCATE answers RESTART IDENTITY CASCADE;')
+    if os.environ.get("FLASK_ENV") == 'development':
+        db.session.execute('DELETE FROM answers;')
+    else:
+        db.session.execute('TRUNCATE answers RESTART IDENTITY CASCADE;')
     db.session.commit()
