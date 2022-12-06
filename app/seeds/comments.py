@@ -1,4 +1,5 @@
 from app.models import db, Comment
+import os
 
 def seed_comments():
     # comments to t/AskThreaddit
@@ -217,5 +218,8 @@ def seed_comments():
     db.session.commit()
 
 def undo_comments():
-    db.session.execute('TRUNCATE comments RESTART IDENTITY CASCADE;')
+    if os.environ.get("FLASK_ENV") == 'development':
+        db.session.execute('DELETE FROM comments;')
+    else:
+        db.session.execute('TRUNCATE comments RESTART IDENTITY CASCADE;')
     db.session.commit()

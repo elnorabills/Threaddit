@@ -1,4 +1,5 @@
 from app.models import db, Vote
+import os
 
 def seed_votes():
     vote1 = Vote(
@@ -286,5 +287,8 @@ def seed_votes():
     db.session.commit()
 
 def undo_votes():
-    db.session.execute('TRUNCATE votes RESTART IDENTITY CASCADE;')
+    if os.environ.get("FLASK_ENV") == 'development':
+        db.session.execute('DELETE FROM votes;')
+    else:
+        db.session.execute('TRUNCATE votes RESTART IDENTITY CASCADE;')
     db.session.commit()
