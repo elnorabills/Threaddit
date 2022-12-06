@@ -14,9 +14,18 @@ const SignUpForm = () => {
 
     const onSignUp = async (e) => {
       e.preventDefault();
+
+      let reg = // eslint-disable-next-line
+      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+      if (!email.toLowerCase().match(reg)) {
+      setEmail("");
+      errors.push("Invalid email.");
+      }
+
       if (password === repeatPassword) {
         const data = await dispatch(signUp(username, email, password));
         if (data) {
+          // errors.push("Invalid email.");
           setErrors(data);
         }
       } else {
@@ -73,7 +82,7 @@ const SignUpForm = () => {
       <div>
         <input
           className="modal-input-title"
-          type="text"
+          type="email"
           name="email"
           onChange={updateEmail}
           value={email}
