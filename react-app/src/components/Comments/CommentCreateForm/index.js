@@ -30,7 +30,11 @@ function CommentCreateForm({ answerId, refreshQuestion, setCommentModal }) {
       <h2 className="modal-form-title">Respond To Comment</h2>
       <textarea
         className="modal-input-body"
+        name="body"
         type="text"
+        id="body"
+        minLength={1}
+        maxLength={2000}
         value={body}
         onChange={(e) => setBody(e.target.value)}
         placeholder="What are your thoughts?"

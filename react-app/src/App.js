@@ -12,6 +12,7 @@ import UserProfile from './components/UserProfile';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import SplashPage from './components/SplashPage';
+import Footer from './components/Footer';
 import { authenticate } from './store/session';
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
           <SplashPage />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

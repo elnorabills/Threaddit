@@ -21,12 +21,15 @@
     font-family: 'Josefin Sans', cursive;
     font-size: 23px;
     margin-bottom: 10px;
+    overflow-wrap:break-word;
 }
 
 .q-body {
     font-size: 15px;
     font-weight: 300;
     margin-bottom: 10px;
+    overflow-wrap:break-word;
+    word-break: break-all;
 }
 
 .q-bottom{

@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchCreateQuestions } from "../../../store/questions";
@@ -14,6 +14,8 @@ function QuestionCreateForm({ setShowModal }) {
   const [body, setBody] = useState("");
   const [postCategory, setPostCategory] = useState("");
   const [validationErrors, setValidationErrors] = useState([]);
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,12 +42,17 @@ function QuestionCreateForm({ setShowModal }) {
     return createdQuestion;
   };
 
+
+
   return (
     <form onSubmit={handleSubmit} className="modal-container">
       <h2 className="modal-form-title">Create A Post</h2>
       <textarea
         className="modal-input-title"
         type="text"
+        id="title"
+        minLength={1}
+        maxLength={200}
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         name="title"
@@ -54,6 +61,10 @@ function QuestionCreateForm({ setShowModal }) {
       />
       <textarea
         className="modal-input-body"
+        id="body"
+        type="text"
+        minLength={1}
+        maxLength={2000}
         value={body}
         onChange={(e) => setBody(e.target.value)}
         name="body"

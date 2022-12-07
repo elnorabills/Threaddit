@@ -18,6 +18,7 @@
 .qli-link {
     color: black;
     text-decoration: none;
+    overflow-wrap:break-word;
 }
 
 /* .qli-link:visited {
@@ -28,6 +29,7 @@
 
 .qli-title {
     font-family: 'Josefin Sans', cursive;
+    overflow-wrap:break-word;
 
 }
 
