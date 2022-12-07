@@ -15,12 +15,12 @@ const SignUpForm = () => {
     const onSignUp = async (e) => {
       e.preventDefault();
 
-      let reg = // eslint-disable-next-line
-      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-      if (!email.toLowerCase().match(reg)) {
-      setEmail("");
-      errors.push("Invalid email.");
-      }
+      // let reg = // eslint-disable-next-line
+      // /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+      // if (!email.toLowerCase().match(reg)) {
+      // setEmail("");
+      // errors.push("Invalid email.");
+      // }
 
       if (password === repeatPassword) {
         const data = await dispatch(signUp(username, email, password));
@@ -54,10 +54,10 @@ const SignUpForm = () => {
   }
 
   return (
-    <form className="modal-container" onSubmit={onSignUp}>
-      <div>
+    <form className="modal-container-signup" onSubmit={onSignUp}>
+      <div className='errors'>
         {errors.map((error, ind) => (
-          <div className="errors" key={ind}>
+          <div key={ind}>
             {error}
           </div>
         ))}
