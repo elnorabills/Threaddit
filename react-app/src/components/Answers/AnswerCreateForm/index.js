@@ -32,6 +32,10 @@ function AnswerCreateForm({ refreshQuestion, setShowAnswerModal }) {
         <textarea
           className="modal-input-body"
           type="text"
+          name="body"
+          id="body"
+          minLength="1"
+          maxLength="2000"
           placeholder="What are your thoughts?"
           value={body}
           onChange={(e) => setBody(e.target.value)}
