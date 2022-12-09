@@ -21,6 +21,20 @@ function AnswerCreateForm({ refreshQuestion, setShowAnswerModal }) {
     );
   }
 
+  // if (body.trim().length === 0) {
+  //   submitButton = (
+  //     <button disabled={true} className="modal-btn modal-submit-btn">
+  //       Submit
+  //     </button>
+  //   );
+  // } else {
+  //   submitButton = (
+  //     <button className="modal-btn modal-submit-btn">
+  //       Submit
+  //     </button>
+  //   );
+  // }
+
   useEffect(() => {
     const arr = [];
     if (body.split(" ").length === body.length + 1 || body.length < 0) {
