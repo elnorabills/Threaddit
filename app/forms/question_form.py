@@ -6,5 +6,5 @@ from app.models import User, Question
 
 class QuestionForm(FlaskForm):
     title = TextAreaField('title', validators=[DataRequired(), Length(max=200, message=None)])
-    body = TextAreaField('body', validators=[Length(max=2000, message=None)])
+    body = TextAreaField('body', validators=[DataRequired(), Length(max=2000, message=None)])
     postCategory = StringField('postCategory')

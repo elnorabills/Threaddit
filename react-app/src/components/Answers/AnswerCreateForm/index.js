@@ -1,6 +1,6 @@
 
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchCreateAnswer } from "../../../store/answers";
 import "./AnswerCreateForm.css";
@@ -11,6 +11,23 @@ function AnswerCreateForm({ refreshQuestion, setShowAnswerModal }) {
   const { questionId } = useParams();
   const [body, setBody] = useState("");
   const [errors, setErrors] = useState([]);
+
+  let submitButton;
+  if (body.trim().length > 1) {
+    submitButton = (
+      <button disabled={!body} className="modal-btn modal-submit-btn">
+        Submit
+      </button>
+    );
+  }
+
+  useEffect(() => {
+    const arr = [];
+    if (body.split(" ").length === body.length + 1 || body.length < 0) {
+      arr.push("Must contain at least one character in text body");
+    }
+    setErrors(arr);
+  }, [body]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -34,14 +51,14 @@ function AnswerCreateForm({ refreshQuestion, setShowAnswerModal }) {
           type="text"
           name="body"
           id="body"
-          minLength="1"
-          maxLength="2000"
+          minLength={1}
+          maxLength={2000}
           placeholder="What are your thoughts?"
           value={body}
           onChange={(e) => setBody(e.target.value)}
           required
         ></textarea>
-        <ul className="errorMsg">
+        <ul className="errors">
           {errors.map((error, idx) => (
             <li className="errors" key={idx}>
               {error}
@@ -49,7 +66,8 @@ function AnswerCreateForm({ refreshQuestion, setShowAnswerModal }) {
           ))}
         </ul>
         <div>
-          <button className="modal-btn modal-submit-btn">Submit</button>
+          {/* <button className="modal-btn modal-submit-btn">Submit</button> */}
+          {submitButton}
           <button
             className="modal-btn modal-cancel-btn"
             onClick={() => setShowAnswerModal(false)}

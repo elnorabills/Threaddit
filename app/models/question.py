@@ -12,7 +12,7 @@ class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'))
     title = db.Column(db.String(200), nullable=False)
-    body = db.Column(db.String(2000))
+    body = db.Column(db.String(2000), nullable=False)
     postCategory = db.Column(db.String(25), nullable=False)
     created_on = db.Column(db.DateTime, default=datetime.utcnow)
     updated_on = db.Column(db.DateTime, onupdate=datetime.utcnow)
