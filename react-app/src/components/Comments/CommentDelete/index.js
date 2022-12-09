@@ -31,7 +31,7 @@ function CommentDelete({ commentId, setShowDeleteModal, refreshQuestion }) {
           ))}
       </ul>
       <p className="modal-form-title">
-        Are you sure you want to delete this comment?
+        Are you sure you want to delete this response?
       </p>
       <div>
         <button

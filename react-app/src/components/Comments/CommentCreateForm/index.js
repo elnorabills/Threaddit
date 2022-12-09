@@ -1,13 +1,29 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchCreateComment } from "../../../store/comments";
 
 function CommentCreateForm({ answerId, refreshQuestion, setCommentModal }) {
   const dispatch = useDispatch();
-
   const [body, setBody] = useState("");
   const [errors, setErrors] = useState([]);
+
+  let submitButton;
+  if (body.trim().length > 1) {
+    submitButton = (
+      <button disabled={!body} className="modal-btn modal-submit-btn">
+        Submit
+      </button>
+    );
+  }
+
+  useEffect(() => {
+    const arr = [];
+    if (body.split(" ").length === body.length + 1 || body.length < 0) {
+      arr.push("Must contain at least one character in text body");
+    }
+    setErrors(arr);
+  }, [body]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -48,7 +64,8 @@ function CommentCreateForm({ answerId, refreshQuestion, setCommentModal }) {
         ))}
       </ul>
       <div>
-        <button className="modal-btn modal-submit-btn">Submit</button>
+        {/* <button className="modal-btn modal-submit-btn">Submit</button> */}
+        {submitButton}
         <button
           className="modal-btn modal-cancel-btn"
           onClick={() => setCommentModal(false)}

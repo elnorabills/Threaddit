@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchEditQuestions } from "../../../store/questions";
 import "./QuestionEditForm.css";
@@ -11,6 +11,26 @@ function QuestionEditForm({ setShowEditModal, question, refreshQuestion }) {
   const [title, setTitle] = useState(question?.title);
   const [body, setBody] = useState(question?.body);
   const [errors, setErrors] = useState([]);
+
+  let submitButton;
+  if (title.trim().length > 1 && body.trim().length > 1) {
+    submitButton = (
+      <button disabled={!title} className="modal-btn modal-submit-btn">
+        Submit
+      </button>
+    );
+  }
+
+  useEffect(() => {
+    const arr = [];
+    if (title.split(" ").length === title.length + 1 || title.length < 0) {
+      arr.push("Must contain at least one character in title body");
+    }
+    if (body.split(" ").length === body.length + 1 || body.length < 0) {
+      arr.push("Must contain at least one character in text body");
+    }
+    setErrors(arr);
+  }, [title, body]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,17 +61,24 @@ function QuestionEditForm({ setShowEditModal, question, refreshQuestion }) {
       <textarea
         className="modal-input-title"
         type="text"
+        minLength={1}
+        maxLength={200}
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         name="title"
+        placeholder="Title (required)"
         required
       />
       <textarea
         className="modal-input-body"
+        type="text"
+        minLength={1}
+        maxLength={2000}
         value={body}
         onChange={(e) => setBody(e.target.value)}
         name="body"
-        placeholder="Text (optional)"
+        placeholder="Text (required)"
+        required
       />
       <ul>
         {errors.length > 0 &&
@@ -62,7 +89,13 @@ function QuestionEditForm({ setShowEditModal, question, refreshQuestion }) {
           ))}
       </ul>
       <div>
-        <button className="modal-btn modal-submit-btn">Submit</button>
+        {/* <button
+          disabled={!title}
+          className="modal-btn modal-submit-btn"
+        >
+          Submit
+        </button> */}
+        {submitButton}
         <button
           onClick={() => setShowEditModal(false)}
           className="modal-btn modal-cancel-btn"

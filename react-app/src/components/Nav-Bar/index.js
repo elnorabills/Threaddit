@@ -14,6 +14,7 @@ const NavBar = () => {
   const user = useSelector((state) => state.session.user);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+
   useEffect(() => {
     user ? setIsLoggedIn(true) : setIsLoggedIn(false);
   }, [user]);
