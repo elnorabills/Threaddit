@@ -15,24 +15,36 @@ function QuestionCreateForm({ setShowModal }) {
   const [validationErrors, setValidationErrors] = useState([]);
 
   let submitButton;
-  if (title.trim().length > 1 && body.trim().length > 1) {
+  if (title.trim().length === 0 || body.trim().length === 0) {
     submitButton = (
-      <button disabled={!title} className="modal-btn modal-submit-btn">
+      <button disabled={true} className="modal-btn modal-submit-btn">
         Submit
       </button>
     );
+  } else {
+    submitButton = (
+      <button className="modal-btn modal-submit-btn">Submit</button>
+    );
   }
 
-  useEffect(() => {
-    const arr = [];
-    if (title.split(" ").length === title.length + 1 || title.length < 0) {
-      arr.push("Must contain at least one character in title body");
-    }
-    if (body.split(" ").length === body.length + 1 || body.length < 0) {
-      arr.push("Must contain at least one character in text body");
-    }
-    setValidationErrors(arr);
-  }, [title, body]);
+  // if (title.trim().length > 1 && body.trim().length > 1) {
+  //   submitButton = (
+  //     <button disabled={!title} className="modal-btn modal-submit-btn">
+  //       Submit
+  //     </button>
+  //   );
+  // }
+
+  // useEffect(() => {
+  //   const arr = [];
+  //   if (title.split(" ").length === title.length + 1 || title.length < 0) {
+  //     arr.push("Must contain at least one character in title body");
+  //   }
+  //   if (body.split(" ").length === body.length + 1 || body.length < 0) {
+  //     arr.push("Must contain at least one character in text body");
+  //   }
+  //   setValidationErrors(arr);
+  // }, [title, body]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
