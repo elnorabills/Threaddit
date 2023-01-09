@@ -1,6 +1,6 @@
 
 const CREATE_COMMENT = "comments/create";
-const EDIT_COMMENT = "comments/create";
+const EDIT_COMMENT = "comments/update";
 const DELETE_COMMENT = "comments/delete";
 
 
@@ -53,20 +53,24 @@ export const fetchCreateComment = (answerId, comments) => async (dispatch) => {
 };
 
 // Thunk: EDIT (PUT) comment
-export const fetchEditComments = (comment) => async (dispatch) => {
-  const res = await fetch(`/api/comments/${comment.id}`, {
+export const fetchEditComments = (comment, commentId) => async (dispatch) => {
+  let response;
+  response = await fetch(`/api/comments/${commentId}`, {
     method: "PUT",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify(comment),
   });
 
-  if (res.ok) {
-    const comment = await res.json();
+  if (response.ok) {
+    const comment = await response.json();
     dispatch(editComment(comment));
-    return comment;
   }
-  return res;
+
+  return response;
 };
+
 
 // Thunk: DELETE comment
 export const fetchDeleteComment = (commentId) => async (dispatch) => {

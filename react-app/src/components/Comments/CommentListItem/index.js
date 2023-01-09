@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Modal } from "../../../Modal-Context/Modal";
 import CommentDelete from "../CommentDelete/";
+import CommentEditForm from "../CommentEditForm";
 import "./CommentListItem.css";
 
 function CommentListItem({ comment, refreshQuestion }) {
-
+  const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const sessionUser = useSelector((state) => state.session.user);
   const isOwner = sessionUser.id === comment?.userId;
@@ -34,6 +35,23 @@ function CommentListItem({ comment, refreshQuestion }) {
             <CommentDelete
               commentId={comment?.id}
               setShowDeleteModal={setShowDeleteModal}
+              refreshQuestion={refreshQuestion}
+            />
+          </Modal>
+        )}
+        {isOwner && (
+          <button
+            className="comment-delete-button"
+            onClick={() => setShowEditModal(true)}
+          >
+            Edit
+          </button>
+        )}
+        {showEditModal && (
+          <Modal onClose={() => setShowEditModal(false)}>
+            <CommentEditForm
+              setShowEditModal={setShowEditModal}
+              comment={comment}
               refreshQuestion={refreshQuestion}
             />
           </Modal>
