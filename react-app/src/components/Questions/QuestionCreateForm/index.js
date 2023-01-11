@@ -85,9 +85,24 @@ function QuestionCreateForm({ setShowModal }) {
 
   return (
     <form onSubmit={handleSubmit} className="modal-container">
-      <h2 className="modal-form-title">Create A Post</h2>
+      <h2 className="create-modal-form-title">Create A Post</h2>
+        <select
+          className="select-postCategory"
+          value={postCategory}
+          onChange={(e) => setPostCategory(e.target.value)}
+          required
+        >
+          <option value="" selected disabled hidden>
+            Choose a community
+          </option>
+          <option value="t/AskScience">t/AskScience</option>
+          <option value="t/AskThreaddit">t/AskThreaddit</option>
+          <option value="t/DoesAnybodyElse">t/DoesAnybodyElse</option>
+          <option value="t/gaming">t/gaming</option>
+          <option value="t/movies">t/movies</option>
+        </select>
       <textarea
-        className="modal-input-title"
+        className="create-modal-input-title"
         type="text"
         id="title"
         minLength={1}

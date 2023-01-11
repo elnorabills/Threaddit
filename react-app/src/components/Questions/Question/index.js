@@ -5,6 +5,7 @@ import { Modal } from "../../../Modal-Context/Modal";
 import QuestionEditForm from "../QuestionEditForm";
 import QuestionDelete from "../QuestionDelete";
 import AnswerCreateForm from "../../Answers/AnswerCreateForm";
+import circle_img from "../../../images/new_circle.png";
 import "./Question.css";
 
 function Question({ question, refreshQuestion }) {
@@ -18,7 +19,11 @@ function Question({ question, refreshQuestion }) {
   return (
     <div className="q-container">
       <div className="q-detail">
-        <div className="q-posted-by">Posted by: {question?.username}</div>
+        <div className="q-heading">
+          <img className="q-circle-img" src={circle_img} />
+          <div className="q-postCategory">{question?.postCategory}</div>
+          <div className="q-posted-by">Posted by: {question?.username}</div>
+        </div>
         <div className="q-title">{question?.title}</div>
         <div className="q-body">{question?.body}</div>
 
@@ -63,8 +68,12 @@ function Question({ question, refreshQuestion }) {
       </div>
       <div className="postAnswer">
         {
-          <button className="q-comment-button" onClick={() => setShowAnswerModal(true)}>
-            Comment as{" "}<div className="red-username">{sessionUser?.username}</div>
+          <button
+            className="q-comment-button"
+            onClick={() => setShowAnswerModal(true)}
+          >
+            Comment as{" "}
+            <div className="red-username">{sessionUser?.username}</div>
           </button>
         }
         {showAnswerModal && (

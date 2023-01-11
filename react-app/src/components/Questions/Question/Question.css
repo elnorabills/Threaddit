@@ -11,10 +11,24 @@
     margin-bottom: 20px;
 }
 
+.q-heading {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 6px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.q-postCategory {
+    font-size: 12px;
+    color: black;
+    font-weight: 600;
+    padding-right: 8px;
+}
+
 .q-posted-by {
     font-size: 12px;
     color: rgb(135, 132, 132);
-    margin-bottom: 10px;
 }
 
 .q-title {
@@ -90,4 +104,10 @@
 .red-username {
     color: rgb(185, 3, 3);
     padding-left: 4px;
+}
+
+.q-circle-img {
+    height: 20px;
+    width: 20px;
+    margin-right: 4px;
 }
