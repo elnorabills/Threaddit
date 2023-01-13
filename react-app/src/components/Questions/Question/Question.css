@@ -9,6 +9,8 @@
     padding-top: 20px;
     padding-bottom: 20px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
 }
 
 .q-heading {
@@ -110,4 +112,11 @@
     height: 20px;
     width: 20px;
     margin-right: 4px;
+}
+
+.votes-box {
+    display: flex;
+    flex-direction: column;
+    padding-right: 15px;
+    align-items: center;
 }

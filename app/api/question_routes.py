@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import User, db, Question, Answer, Comment, Vote
-from app.forms import QuestionForm, AnswerForm, LoginForm, SignUpForm
+from app.forms import QuestionForm, AnswerForm, LoginForm, SignUpForm, VoteForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.api.auth_routes import validation_errors_to_error_messages
 
@@ -26,6 +26,61 @@ def get_one_question(questionId):
     """
     question = Question.query.get(questionId)
     return {"Question": question.to_dict_nested()}, 200
+
+# GET all questions based on postCategory: t/gaming
+@bp_question_routes.route('/gaming')
+@login_required
+def get_gaming_postCategory():
+    """
+    Get all questions from t/gaming
+    """
+    questions = Question.query.filter_by(postCategory="t/gaming").all()
+
+    return {'Questions': [question.to_dict() for question in questions]}
+
+# GET all questions based on postCategory: t/movies
+@bp_question_routes.route('/movies')
+@login_required
+def get_movies_postCategory():
+    """
+    Get all questions from t/movies
+    """
+    questions = Question.query.filter_by(postCategory="t/movies").all()
+
+    return {'Questions': [question.to_dict() for question in questions]}
+
+# GET all questions based on postCategory: t/AskThreaddit
+@bp_question_routes.route('/askThreaddit')
+#@login_required
+def get_askThreaddit_postCategory():
+    """
+    Get all questions from t/askThreaddit
+    """
+    questions = Question.query.filter_by(postCategory="t/AskThreaddit").all()
+
+    return {'Questions': [question.to_dict() for question in questions]}
+
+# GET all questions based on postCategory: t/askScience
+@bp_question_routes.route('/askScience')
+@login_required
+def get_askScience_postCategory():
+    """
+    Get all questions from t/askScience
+    """
+    questions = Question.query.filter_by(postCategory="t/AskScience").all()
+
+    return {'Questions': [question.to_dict() for question in questions]}
+
+# GET all questions based on postCategory: t/DoesAnybodyElse
+@bp_question_routes.route('/doesAnybodyElse')
+@login_required
+def get_doesAnybodyElse_postCategory():
+    """
+    Get all questions from t/doesAnybodyElse
+    """
+    questions = Question.query.filter_by(postCategory="t/DoesAnybodyElse").all()
+
+    return {'Questions': [question.to_dict() for question in questions]}
 
 
 # POST a question
@@ -136,7 +191,7 @@ def post_answer(questionId):
 # Post a vote on a question
 @bp_question_routes.route('/<int:questionId>/votes', methods=['POST'])
 @login_required
-def create_vote(answerId):
+def create_vote(questionId):
     """
     Upvote or Downvote a question based on questionId
     """
@@ -156,7 +211,7 @@ def create_vote(answerId):
     if form.validate_on_submit():
         new_vote = Vote(
             userId=current_user.id,
-            questionId=answerId,
+            questionId=questionId,
             voteDirection=form.data['voteDirection']
         )
 

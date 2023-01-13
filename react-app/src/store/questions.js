@@ -2,6 +2,7 @@
 const CREATE_QUESTIONS = "questions/create";
 const EDIT_QUESTIONS = "questions/edit";
 const GET_USER_QUESTIONS = "user_questions/get";
+const GET_PC_QUESTIONS = "pc_questions/get";
 const GET_ALL_QUESTIONS = "questions/get";
 const GET_QUESTION = "question/get";
 const DELETE_QUESTIONS = "questions/delete";
@@ -29,6 +30,12 @@ export const editQuestions = (question) => {
 // Action: GET user questions
 export const getUserQuestions = (questions) => ({
   type: GET_USER_QUESTIONS,
+  payload: questions,
+});
+
+// Action: GET pc questions
+export const getPCQuestions = (questions) => ({
+  type: GET_PC_QUESTIONS,
   payload: questions,
 });
 
@@ -116,6 +123,71 @@ export const fetchUserQuestions = () => async (dispatch) => {
   }
 };
 
+// Thunk: GET gaming questions
+export const fetchGamingQuestions = () => async (dispatch) => {
+  const res = await fetch(`/api/questions/gaming`);
+
+  if (res.ok) {
+    const questions = await res.json();
+
+    dispatch(getPCQuestions(questions));
+
+    return res;
+  }
+};
+
+// Thunk: GET movie questions
+export const fetchMovieQuestions = () => async (dispatch) => {
+  const res = await fetch(`/api/questions/movies`);
+
+  if (res.ok) {
+    const questions = await res.json();
+
+    dispatch(getPCQuestions(questions));
+
+    return res;
+  }
+};
+
+// Thunk: GET askThreaddit questions
+export const fetchAskThreadditQuestions = () => async (dispatch) => {
+  const res = await fetch(`/api/questions/askThreaddit`);
+
+  if (res.ok) {
+    const questions = await res.json();
+
+    dispatch(getPCQuestions(questions));
+
+    return res;
+  }
+};
+
+// Thunk: GET askScience questions
+export const fetchAskScienceQuestions = () => async (dispatch) => {
+  const res = await fetch(`/api/questions/askScience`);
+
+  if (res.ok) {
+    const questions = await res.json();
+
+    dispatch(getPCQuestions(questions));
+
+    return res;
+  }
+};
+
+// Thunk: GET doesAnybodyElse questions
+export const fetchDAEQuestions = () => async (dispatch) => {
+  const res = await fetch(`/api/questions/doesAnybodyElse`);
+
+  if (res.ok) {
+    const questions = await res.json();
+
+    dispatch(getPCQuestions(questions));
+
+    return res;
+  }
+};
+
 // Thunk: GET all questions
 export const fetchAllQuestions = () => async (dispatch) => {
   const res = await fetch(`/api/questions`);
@@ -171,6 +243,7 @@ export const fetchDeleteVote = (voteId) => async (dispatch) => {
 export const fetchCreateVote =
   (questionId, voteDirection) => async (dispatch) => {
     let response;
+    console.log(questionId, voteDirection)
 
     response = await fetch(`/api/questions/${questionId}/votes`, {
       method: "POST",
@@ -179,7 +252,7 @@ export const fetchCreateVote =
       },
       body: JSON.stringify({ voteDirection }),
     });
-
+    console.log(response);
     if (response.ok) {
       const question = await response.json();
       dispatch(createVote(voteDirection));
@@ -199,6 +272,12 @@ const questionsReducer = (state = initialState, action) => {
       newState.user_questions = {};
       action.payload["Questions"].forEach(
         (question) => (newState.user_questions[question.id] = question)
+      );
+      return newState;
+    case GET_PC_QUESTIONS:
+      newState.pc_questions = {};
+      action.payload["Questions"].forEach(
+        (question) => (newState.pc_questions[question.id] = question)
       );
       return newState;
     case GET_ALL_QUESTIONS:

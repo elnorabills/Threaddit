@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import QuestionListItem from "../QuestionListItem";
 import { fetchUserQuestions } from "../../../store/questions";
@@ -8,7 +8,7 @@ import "./MyQuestions.css";
 function MyQuestions() {
 
   const dispatch = useDispatch();
-  const [validationErrors, setValidationErrors] = useState([]);
+
 
   const questions = Object.values(
     useSelector((state) =>

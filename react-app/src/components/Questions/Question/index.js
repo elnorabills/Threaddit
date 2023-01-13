@@ -5,6 +5,7 @@ import { Modal } from "../../../Modal-Context/Modal";
 import QuestionEditForm from "../QuestionEditForm";
 import QuestionDelete from "../QuestionDelete";
 import AnswerCreateForm from "../../Answers/AnswerCreateForm";
+import Votes from "../../Votes";
 import circle_img from "../../../images/new_circle.png";
 import "./Question.css";
 
@@ -19,50 +20,55 @@ function Question({ question, refreshQuestion }) {
   return (
     <div className="q-container">
       <div className="q-detail">
-        <div className="q-heading">
-          <img className="q-circle-img" src={circle_img} />
-          <div className="q-postCategory">{question?.postCategory}</div>
-          <div className="q-posted-by">Posted by: {question?.username}</div>
+        <div className="votes-box">
+          <Votes question={question} refreshQuestion={refreshQuestion} />
         </div>
-        <div className="q-title">{question?.title}</div>
-        <div className="q-body">{question?.body}</div>
+        <div className="everything-except-vote">
+          <div className="q-heading">
+            <img className="q-circle-img" src={circle_img} />
+            <div className="q-postCategory">{question?.postCategory}</div>
+            <div className="q-posted-by">Posted by: {question?.username}</div>
+          </div>
+          <div className="q-title">{question?.title}</div>
+          <div className="q-body">{question?.body}</div>
 
-        <div className="q-bottom">
-          <div className="q-actions-container">
-            {isOwner && (
-              <button
-                className="link-edit-button"
-                onClick={() => setShowEditModal(true)}
-              >
-                Edit{" "}
-              </button>
-            )}
-            {showEditModal && (
-              <Modal onClose={() => setShowEditModal(false)}>
-                <QuestionEditForm
-                  setShowEditModal={setShowEditModal}
-                  question={question}
-                  refreshQuestion={refreshQuestion}
-                />
-              </Modal>
-            )}
-            {isOwner && (
-              <button
-                className="link-delete-button"
-                onClick={() => setShowDeleteModal(true)}
-              >
-                Delete
-              </button>
-            )}
-            {showDeleteModal && (
-              <Modal onClose={() => setShowDeleteModal(false)}>
-                <QuestionDelete
-                  setShowDeleteModal={setShowDeleteModal}
-                  questionId={question?.id}
-                  refreshQuestion={refreshQuestion}
-                />
-              </Modal>
-            )}
+          <div className="q-bottom">
+            <div className="q-actions-container">
+              {isOwner && (
+                <button
+                  className="link-edit-button"
+                  onClick={() => setShowEditModal(true)}
+                >
+                  Edit{" "}
+                </button>
+              )}
+              {showEditModal && (
+                <Modal onClose={() => setShowEditModal(false)}>
+                  <QuestionEditForm
+                    setShowEditModal={setShowEditModal}
+                    question={question}
+                    refreshQuestion={refreshQuestion}
+                  />
+                </Modal>
+              )}
+              {isOwner && (
+                <button
+                  className="link-delete-button"
+                  onClick={() => setShowDeleteModal(true)}
+                >
+                  Delete
+                </button>
+              )}
+              {showDeleteModal && (
+                <Modal onClose={() => setShowDeleteModal(false)}>
+                  <QuestionDelete
+                    setShowDeleteModal={setShowDeleteModal}
+                    questionId={question?.id}
+                    refreshQuestion={refreshQuestion}
+                  />
+                </Modal>
+              )}
+            </div>
           </div>
         </div>
       </div>
