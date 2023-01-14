@@ -1,0 +1,6 @@
+
+.gaming-cover-photo {
+    background-image: url('../../../images/Gaming-cover.jpg');
+    background-size: cover;
+    height: 230px;
+}

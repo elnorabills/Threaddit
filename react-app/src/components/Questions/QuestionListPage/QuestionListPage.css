@@ -15,18 +15,17 @@
     width: 100%;
     height: 50px;
     border: none;
-    background-color: white;
+    background-color: rgb(185, 3, 3);
     border-radius: 4px;
-    color: rgb(89, 88, 88);
+    color: white;
     border: solid 1px rgb(187, 185, 185);
     font-family: sans-serif;
+    font-weight: 700;
     font-size: 15px;
 }
 
 .cp-button:hover {
     border: solid 0.9px black;
     color: white;
-    font-weight: 700;
-    background-color: rgb(185, 3, 3);
-    transition: 0.6s;
+    background-color: rgb(57, 56, 56);
 }

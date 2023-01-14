@@ -4,7 +4,6 @@ import QuestionListItem from "../../Questions/QuestionListItem";
 import { fetchAskScienceQuestions } from "../../../store/questions";
 import { Modal } from "../../../Modal-Context/Modal";
 import QuestionCreateForm from "../../Questions/QuestionCreateForm";
-// import Sidebar from "../../Sidebar";
 import "./AskScience.css"
 
 const AskScience = () => {
@@ -33,7 +32,6 @@ const AskScience = () => {
         </h2>
       </div>
       <div className="science-container">
-        {/* <Sidebar /> */}
         <div className="my-ql-container">
           <button
             className="cp-button-science"
