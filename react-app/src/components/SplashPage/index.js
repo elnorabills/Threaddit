@@ -32,7 +32,7 @@ const SplashPage = () => {
             Threaddit is home to thousands of communities, endless conversation,
             and authentic human connection. Whether you're into breaking news,
             sports, TV fan theories, or a never-ending stream of the internet's
-            cutest animals, there's a community on Reddit for you.
+            cutest animals, there's a community on Threaddit for you.
           </p>
         </div>
         <div className="message-box-container-right">
