@@ -55,7 +55,7 @@ const DoesAnybodyElse = () => {
           </div>
           <div className="about-community-container">
             <div className="ab-comm-bodybox">
-              <h3 className="ab-comm-body">Welcome to DoesAnybodyElse</h3>
+              <h3 className="ab-comm-body">Welcome to t/DoesAnybodyElse</h3>
             </div>
             <div className="created-box">
               <i class="fa-solid fa-cake-candles"></i>
