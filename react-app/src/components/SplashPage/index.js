@@ -29,7 +29,7 @@ const SplashPage = () => {
           )}
           <h1 className="splash-h1">Dive Into Anything</h1>
           <p className="para-one">
-            Reddit is home to thousands of communities, endless conversation,
+            Threaddit is home to thousands of communities, endless conversation,
             and authentic human connection. Whether you're into breaking news,
             sports, TV fan theories, or a never-ending stream of the internet's
             cutest animals, there's a community on Reddit for you.
