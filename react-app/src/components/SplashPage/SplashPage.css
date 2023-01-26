@@ -3,7 +3,7 @@
 .splash-container {
     display: flex;
     justify-content: center;
-    height: 600px;
+    height: 100vh;
     width: 100%;
     padding-top: 50px;
     background-color: rgb(231, 231, 232);
