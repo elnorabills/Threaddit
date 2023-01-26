@@ -1,6 +1,7 @@
 
 .movies-cover-photo {
     /* background-image: url('../../../images/Movie-cover.png'); */
+    background-image: url('../../../images/Movie-cover.jpg');
     background-size: cover;
     height: 230px;
 }
